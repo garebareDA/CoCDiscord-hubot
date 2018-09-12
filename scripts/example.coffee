@@ -19,6 +19,9 @@ module.exports = (robot) ->
   robot.hear /s (.*)d(.*)/i, (msg) ->
     msg.send report roll msg.match[1], msg.match[2]
 
+  robot.hear /ping/i, (msg) -> 
+    msg.send "PONG"
+
   report = (results) ->
     sum = results.reduce (previousValue, currentValue, index, array)-> previousValue + currentValue
     "#{results.join(',')} 合計#{sum}"
